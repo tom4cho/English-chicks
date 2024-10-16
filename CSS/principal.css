@@ -1,0 +1,254 @@
+/* principal.css */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+}
+
+h1 { font-size: 3.5em; }
+h2 { font-size: 2.7em; }
+h3 { font-size: 2em; }
+p { font-size: 1.25em; }
+ul { list-style: none; }
+li { font-size: 1.25em; }
+
+button {
+    font-size: 1.25em;
+    font-weight: bold;
+    padding: 10px 30px;
+    border-radius: 5px;
+    border: 2px solid rgba(0,0,0,0.3);
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    color: white;
+    background-color: rgb(184, 28, 14);
+    margin: 10px 0;
+}
+
+button:hover {
+    background-color: rgb(150, 20, 10);
+}
+
+.container {
+    max-width: 1400px;
+    margin: auto;
+    padding: 20px;
+}
+
+.color-acento { color: rgb(184, 28, 14); }
+
+header {
+    background-color: rgb(245, 245, 245);
+}
+
+header .logo {
+    margin: 0;
+    padding: 25px 30px;
+    font-weight: bold;
+    color: rgb(184, 28, 14);
+    font-size: 1.6em;
+}
+
+header .container {
+    display: flex;
+    align-items: center; /* Alinea verticalmente los elementos */
+    justify-content: space-between; /* Espacia el logo y el menú */
+}
+
+header nav {
+    display: flex; /* Cambiar a flex para alinear horizontalmente */
+    flex-direction: row; /* Alinea los elementos en una fila */
+}
+
+header nav a {
+    padding: 10px 20px; /* Espacio alrededor del texto */
+    text-decoration: none; /* Sin subrayado */
+    font-weight: bold; /* Negrita */
+    color: white; /* Color del texto */
+    background-color: rgb(184, 28, 14); /* Fondo rojo */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s, transform 0.3s; /* Transiciones suaves */
+}
+
+header nav a:hover {
+    background-color: rgb(150, 20, 10); /* Cambio de color en hover */
+    transform: scale(1.05); /* Efecto de aumento al pasar el mouse */
+}
+
+header .logo {
+    margin: 0;
+    padding: 25px 30px;
+    font-weight: bold;
+    color: rgb(184, 28, 14);
+    font-size: 1.6em;
+}
+
+
+header a:hover {
+    color: rgb(184, 28, 14);
+}
+
+#hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    height: 90vh;
+    background-image: linear-gradient(
+        0deg,
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.9)
+    ),
+    url("https://img.freepik.com/vector-gratis/ilustracion-escuela-ingles-diseno-plano_23-2149491248.jpg?size=626&ext=jpg&ga=GA1.1.1016474677.1697155200&semt=ais");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+#hero h1 {
+    color: white;
+}
+
+#hero button {
+    font-size: 1.75em;
+}
+
+#somos-proya {
+    text-align: center;
+    padding: 100px 12px;
+}
+
+#somos-proya .img-container {
+    margin: 20px 0;
+}
+
+#somos-proya img {
+    max-width: 100%;
+    border-radius: 15px;
+}
+
+#programas {
+    text-align: center;
+    padding: 100px 12px;
+}
+
+#programas .programas {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+#programas .carta {
+    background: #f4f4f4;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px;
+    width: 300px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#programas img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+#temas {
+    text-align: center;
+    padding: 100px 12px;
+    background-color: rgb(240, 240, 240);
+}
+
+#temas h2 {
+    font-size: 3em;
+}
+
+.temas-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.tema {
+    font-size: 1.5em;
+    margin: 10px;
+    padding: 20px;
+    background-color: rgb(184, 28, 14);
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    height: fit-content;
+}
+
+.tema img {
+    width: 80%;
+    height: 128px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.tema:hover {
+    background-color: rgb(150, 20, 10);
+}
+
+#caracteristicas {
+    text-align: center;
+    padding: 100px 12px;
+}
+
+#caracteristicas h2 {
+    font-size: 3em;
+}
+
+#testimonios {
+    background-color: rgb(240, 240, 240);
+    text-align: center;
+    padding: 100px 12px;
+}
+
+#testimonios h2 {
+    font-size: 3em;
+}
+
+.testimonio {
+    margin: 20px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#contacto {
+    background-color: rgb(30, 30, 30);
+    color: white;
+    text-align: center;
+    padding: 100px 12px;
+}
+
+#contacto h2 {
+    font-size: 3em;
+}
+
+#final {
+    text-align: center;
+    padding: 100px 12px;
+}
+
+footer {
+    background-color: rgb(30, 30, 30);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}

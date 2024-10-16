@@ -1,0 +1,268 @@
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background-color: #e0f7fa;
+    color: #00796b;
+    margin: 0;
+    padding: 0;
+}
+
+#welcome-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #004d40;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 1000;
+    transition: opacity 1s;
+}
+
+#welcome-content {
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+}
+
+#welcome-content h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+#play-button {
+    background-color: #00796b;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#play-button:hover {
+    background-color: #004d40;
+    transform: scale(1.1);
+}
+
+header {
+    background-color: #009688;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 5px solid #004d40;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-30px);
+    }
+    60% {
+        transform: translateY(-15px);
+    }
+}
+
+#quiz-container {
+    margin: 20px auto;
+    max-width: 800px;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.question {
+    margin-bottom: 20px;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #00796b;
+    border-radius: 5px;
+}
+
+#minigame-container {
+    margin: 20px auto;
+    max-width: 800px;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.memory-card {
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    margin: 10px;
+    cursor: pointer;
+    background-color: #80deea;
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s;
+    perspective: 1000px; /* Added for 3D effect */
+}
+
+.memory-card img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 10px;
+    backface-visibility: hidden; /* Hide the back side of the card */
+}
+
+.memory-card .card-front, .memory-card .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    background-color: #ffffff; /* White color for the card back */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    backface-visibility: hidden; /* Hide the back side of the card */
+}
+
+.memory-card .card-front {
+    background-color: #ffffff; /* White front color */
+}
+
+.memory-card .card-back {
+    background-color: #80deea; /* Same color as card */
+    transform: rotateY(180deg);
+}
+
+.memory-card.flipped .card-front {
+    transform: rotateY(180deg);
+}
+
+.memory-card.flipped .card-back {
+    transform: rotateY(0);
+}
+
+.draggable {
+    background-color: #80deea;
+    color: #00796b;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.dropzone {
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    border: 2px dashed #00796b;
+    margin: 10px;
+    border-radius: 10px;
+    position: relative;
+    background-color: #ffffff;
+    text-align: center;
+    line-height: 100px; /* Center text vertically */
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.dropzone img {
+    width: 80px;
+    height: 80px;
+}
+
+.dropzone .label-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.8em;
+    color: #00796b;
+}
+
+/* Animación para los mensajes de éxito e error */
+@keyframes showMessage {
+    0% { opacity: 0; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.1); }
+    100% { opacity: 0; transform: scale(1); }
+}
+
+.message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #4caf50; /* Green for correct */
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 1em;
+    animation: showMessage 1.5s forwards; /* Animation added */
+}
+
+.dropzone .message.incorrect {
+    background-color: #f44336; /* Red for incorrect */
+}
+
+#caligraphy-container {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button {
+    background-color: #00796b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+    margin: 10px;
+}
+
+button:hover {
+    background-color: #004d40;
+    transform: scale(1.05);
+}
+
+#timer {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

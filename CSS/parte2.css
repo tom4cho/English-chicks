@@ -1,0 +1,55 @@
+
+/* styles_ninos.css */
+
+body {
+    font-family: 'Comic Sans MS', cursive;
+    background-color: #f8f8f8;
+}
+
+.modulo {
+    border: 2px solid #ff6b6b;
+    padding: 20px;
+    margin: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px #ccc;
+}
+
+h2 {
+    color: #ff6b6b;
+    font-size: 24px;
+}
+
+ul {
+    list-style-type: square;
+    padding-left: 20px;
+}
+
+p {
+    font-size: 18px;
+    color: #333;
+}
+input{
+    width: 500px ;
+    border-radius: 50px;
+    border: 3px solid transparent;
+    animation: changeBorderColor 3s linear infinite;
+    outline: 0;
+}
+@keyframes changeBorderColor {
+    0% {
+        border-color: rgb(127, 26, 168);
+    }
+    25% {
+        border-color: rgb(199, 81, 148);
+    }
+    50% {
+        border-color: rgb(133, 37, 85);
+    }
+    75% {
+        border-color: rgb(122, 9, 17);
+    }
+    100% {
+        border-color: rgb(255, 0, 0);
+    }
+}

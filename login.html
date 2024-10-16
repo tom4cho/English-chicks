@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Inglés Infantil Mejorado</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom, #87CEEB, #FFFFFF);
+            font-family: 'Comic Sans MS', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .clouds {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+        }
+
+        .cloud {
+            position: absolute;
+            background: url('cloud.png') no-repeat center;
+            background-size: cover;
+            opacity: 0.8;
+            animation: moveClouds 30s linear infinite;
+        }
+
+        /* Variación en tamaños y posiciones iniciales de las nubes */
+        .cloud1 { top: 50px; left: -200px; width: 150px; height: 80px; animation-duration: 30s; }
+        .cloud2 { top: 100px; left: -250px; width: 200px; height: 100px; animation-duration: 40s; }
+        .cloud3 { top: 180px; left: -300px; width: 180px; height: 90px; animation-duration: 35s; }
+        .cloud4 { top: 250px; left: -350px; width: 220px; height: 110px; animation-duration: 50s; }
+
+        @keyframes moveClouds {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(120vw);
+            }
+        }
+
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 350px;
+            animation: fadeIn 1.5s ease-out;
+            transition: all 0.3s ease;
+            /* Centrando el cuadro de login */
+            position: relative;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 26px;
+            animation: bounceIn 1s ease-out;
+        }
+
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0.3);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin: 12px 0;
+            border: 2px solid #87CEEB;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            font-size: 16px;
+        }
+
+        input[type="text"]:focus, input[type="password"]:focus {
+            border-color: #FF6347;
+            box-shadow: 0 0 10px rgba(255, 99, 71, 0.8);
+        }
+
+        button {
+            background-color: #FFA07A;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        button:hover {
+            background-color: #FF7F50;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        button:active {
+            transform: translateY(0);
+            box-shadow: none;
+        }
+
+        .error-message {
+            color: red;
+            display: none;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        /* Sombras en las nubes */
+        .cloud {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .stars div {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: yellow;
+            border-radius: 50%;
+            animation: twinkling 5s infinite ease-in-out;
+        }
+
+        @keyframes twinkling {
+            0%, 100% {
+                opacity: 0.5;
+                transform: scale(0.5);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="clouds">
+    <div class="cloud cloud1"></div>
+    <div class="cloud cloud2"></div>
+    <div class="cloud cloud3"></div>
+    <div class="cloud cloud4"></div>
+</div>
+
+<div class="login-container">
+    <h2>¡Vamos a aprender inglés!</h2>
+    <form id="loginForm">
+        <input type="text" id="username" placeholder="Usuario" required>
+        <input type="password" id="password" placeholder="Contraseña" required>
+        <button type="submit">Entrar</button>
+        <p class="error-message" id="error-message">Usuario o contraseña incorrectos</p>
+    </form>
+</div>
+
+<div class="stars">
+    <div style="top: 20px; left: 50px;"></div>
+    <div style="top: 150px; left: 200px;"></div>
+    <div style="top: 250px; left: 400px;"></div>
+    <div style="top: 50px; right: 100px;"></div>
+    <div style="top: 300px; right: 50px;"></div>
+</div>
+
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        fetch('login.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ username, password })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                window.location.href = 'dashboard.html';
+            } else {
+                document.getElementById('error-message').style.display = 'block';
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    });
+</script>
+
+</body>
+</html>

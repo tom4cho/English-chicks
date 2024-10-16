@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Interactiva para Niños</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@latest/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="character">
+            <img src="pollito.jpg" alt="Pollito Interactivo" id="character">
+        </div>
+        <div class="message">
+           <p id="greeting">¡Hola! Soy tu amigo Pollito Valiente. Estoy aquí para guiarte en esta aventura.</p>
+        </div>
+        <button id="continueButton">Continuar</button>
+
+        <div id="buttonsSection" style="display: none;">
+            <button id="button1" class="big-button">Colores</button>
+            <button id="button2" class="big-button">Números</button> <!-- Botón nuevo para Módulo 2 -->
+            <button id="button3" class="big-button">Video 3</button>
+        </div>
+
+        <!-- Modal para el botón "Colores" -->
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <span class="close" data-modal="modal1">&times;</span>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/c6BVOQfgMP8" frameborder="0" allowfullscreen></iframe>
+                <div class="activity-section">
+                    <div class="score-counter">
+                        Respuestas Correctas: <span id="scoreCount">0</span>/10
+                    </div>
+                    <p id="colorQuestion"></p>
+                    <div class="color-buttons">
+                        <button class="color-button" data-color="red">Rojo</button>
+                        <button class="color-button" data-color="blue">Azul</button>
+                        <button class="color-button" data-color="green">Verde</button>
+                        <button class="color-button" data-color="yellow">Amarillo</button>
+                        <button class="color-button" data-color="purple">Púrpura</button>
+                    </div>
+                    <p id="feedback"></p>
+                    <button id="examButton" style="display: none;" onclick="scrollToQuiz()">Examen</button>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal para el botón "Números" (Módulo 2) -->
+        <div id="modal2" class="modal">
+            <div class="modal-content">
+                <span class="close" data-modal="modal2">&times;</span>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/_8-jyBZE9_E" frameborder="0" allowfullscreen></iframe>
+                <div class="activity-section">
+                    <div class="score-counter">
+                        Respuestas Correctas: <span id="numberScoreCount">0</span>/10
+                    </div>
+                    <p id="numberQuestion"></p>
+                    <div class="number-buttons">
+                        <button class="number-button" data-number="one">Uno</button>
+                        <button class="number-button" data-number="two">Dos</button>
+                        <button class="number-button" data-number="three">Tres</button>
+                        <button class="number-button" data-number="four">Cuatro</button>
+                        <button class="number-button" data-number="five">Cinco</button>
+                    </div>
+                    <p id="numberFeedback"></p>
+                    <button id="numberExamButton" style="display: none;">Examen</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal para el botón 3 -->
+        <div id="modal3" class="modal">
+            <div class="modal-content">
+                <span class="close" data-modal="modal3">&times;</span>
+                <p>Contenido del tercer botón</p>
+            </div>
+        </div>
+    </div>
+    <div id="sadFace" style="display: none;">
+        <p>😢</p>
+        <p>¡Oh no! Has perdido todas tus vidas. ¡Inténtalo de nuevo!</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

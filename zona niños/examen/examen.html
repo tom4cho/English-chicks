@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Quiz</title>
+    <link rel="stylesheet" href="examen.css">
+</head>
+<body>
+    <div id="welcome-screen">
+        <div id="welcome-content">
+            <h1>Hola amiguito, ¿listo para el examen?</h1>
+            <button id="play-button">Play</button>
+        </div>
+    </div>
+    
+    <header id="header">
+        <h1>Color Quiz in English</h1>
+    </header>
+    
+    <section id="quiz-container">
+        <form id="quiz-form">
+            <!-- Multiple Choice Questions -->
+            <div class="question" id="question-1">
+                <p>1. What is the English word for "rojo"?</p>
+                <input type="radio" name="q1" value="red"> Red<br>
+                <input type="radio" name="q1" value="blue"> Blue<br>
+                <input type="radio" name="q1" value="green"> Green<br>
+            </div>
+            <div class="question" id="question-2">
+                <p>2. What is the English word for "amarillo"?</p>
+                <input type="radio" name="q2" value="yellow"> Yellow<br>
+                <input type="radio" name="q2" value="orange"> Orange<br>
+                <input type="radio" name="q2" value="purple"> Purple<br>
+            </div>
+            <div class="question" id="question-3">
+                <p>3. What is the English word for "verde"?</p>
+                <input type="radio" name="q3" value="green"> Green<br>
+                <input type="radio" name="q3" value="red"> Red<br>
+                <input type="radio" name="q3" value="blue"> Blue<br>
+            </div>
+            <div class="question" id="question-4">
+                <p>4. What is the English word for "naranja"?</p>
+                <input type="radio" name="q4" value="orange"> Orange<br>
+                <input type="radio" name="q4" value="yellow"> Yellow<br>
+                <input type="radio" name="q4" value="purple"> Purple<br>
+            </div>
+            <!-- Question with images -->
+            <div class="question" id="question-5">
+                <p>5. Which of these images represents the color "blue"?</p>
+                <img src="images/blue-color.jpg" alt="Blue" style="width: 100px; cursor: pointer;" onclick="selectColor('blue')">
+                <img src="images/red-color.png" alt="Red" style="width: 100px; cursor: pointer;" onclick="selectColor('red')">
+                <img src="images/green-color.png" alt="Green" style="width: 100px; cursor: pointer;" onclick="selectColor('green')">
+            </div>
+            <!-- Drag and Drop Question -->
+            <div class="question" id="question-6">
+                <p>6. Drag the color label to the correct image.</p>
+                <div id="color-labels">
+                    <div id="red" class="draggable" draggable="true" ondragstart="drag(event)">Red</div>
+                    <div id="blue" class="draggable" draggable="true" ondragstart="drag(event)">Blue</div>
+                    <div id="green" class="draggable" draggable="true" ondragstart="drag(event)">Green</div>
+                </div>
+                <div id="color-images">
+                    <div class="dropzone" id="target-red" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <img src="images/red-color.png" alt="Red">
+                    </div>
+                    <div class="dropzone" id="target-blue" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <img src="images/blue-color.jpg" alt="Blue">
+                    </div>
+                    <div class="dropzone" id="target-green" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <img src="images/green-color.png" alt="Green">
+                    </div>
+                </div>
+            </div>
+            
+            <div id="caligraphy-container">
+                <h2>Calligraphy Test</h2>
+                <p>Write the color "blue" below:</p>
+                <textarea id="caligraphy-input" rows="4" cols="50"></textarea>
+            </div>
+            
+            <button type="button" id="submit-button">Submit</button>
+            <button type="button" id="download-button">Download PDF</button>
+        </form>
+    </section>
+    
+    <section id="minigame-container">
+        <h2>Memory Game: Colors</h2>
+        <p>Click on the tiles to find matching color pairs.</p>
+        <div id="memory-game">
+            <div class="memory-card" data-color="red">
+                <div class="card-front">?</div>
+                <div class="card-back">
+                    <img src="images/red-color.png" alt="Red">
+                </div>
+            </div>
+            <div class="memory-card" data-color="blue">
+                <div class="card-front">?</div>
+                <div class="card-back">
+                    <img src="images/blue-color.jpg" alt="Blue">
+                </div>
+            </div>
+            <div class="memory-card" data-color="green">
+                <div class="card-front">?</div>
+                <div class="card-back">
+                    <img src="images/green-color.png" alt="Green">
+                </div>
+            </div>
+            <div class="memory-card" data-color="red">
+                <div class="card-front">?</div>
+                <div class="card-back">
+                    <img src="images/red-color.png" alt="Red">
+                </div>
+            </div>
+            <div class="memory-card" data-color="blue">
+                <div class="card-front">?</div>
+                <div class="card-back">
+                    <img src="images/blue-color.jpg" alt="Blue">
+                </div>
+            </div>
+            <div class="memory-card" data-color="green">
+                <div class="card-front">?</div>
+                <div class="card-back">
+                    <img src="images/green-color.png" alt="Green">
+                </div>
+            </div>
+        </div>
+        
+    </section>
+    <!-- Timer Display -->
+    <div id="timer">Time Left: 00:00</div>
+
+    <!-- Result Message Popup -->
+    <div id="result-message">
+        <p>Your results have been submitted!</p>
+        <button onclick="closeResultMessage()">Close</button>
+    </div>
+
+    <audio id="background-music" src="music/Countdown timer, 30 minutes with relaxing music for concentration, meditation or reading (1).mp3" preload="auto"></audio>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="examen.js"></script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ejercicios de Inglés</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive;
+            text-align: center;
+            background-color: #f3f3f3;
+        }
+        h1 {
+            color: #0077FF;
+        }
+        p {
+            color: #333;
+        }
+        form {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 0 auto;
+            width: 80%;
+            max-width: 600px;
+        }
+        label, select, input {
+            margin: 10px 0;
+        }
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="button"] {
+            background-color: #0077FF;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="button"]:hover {
+            background-color: #0055CC;
+        }
+        p[id^="feedback-"] {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejercicios de Inglés - Saludos y Despedidas</h1>
+    <p>Completa las siguientes oraciones con la opción correcta:</p>
+
+    <form id="quiz-form">
+        <label for="saludo">1. ¿Cómo se dice "hola" en inglés?</label>
+        <input type="text" id="saludo" name="saludo" required>
+        <p id="feedback-saludo"></p>
+        <br>
+
+        <label for="despedida">2. ¿Cómo se dice "adiós" en inglés?</label>
+        <input type="text" id="despedida" name="despedida" required>
+        <p id="feedback-despedida"></p>
+        <br>
+
+        <label for="despedida-opciones">3. Selecciona una opción para "Buenas tardes" en inglés:</label>
+        <select id="despedida-opciones" name="despedida-opciones">
+            <option value="">Selecciona una opción</option>
+            <option value="Good Afternoon">Good Afternoon</option>
+            <option value="farewell">Farewell</option>
+            <option value="see you later">See you later</option>
+            <option value="goodnight">Good  night</option>
+            <option value="take care">Take care</option>
+        </select>
+        <p id="feedback-despedida-opciones"></p>
+        <br>
+
+        <label for="saludo2">4. ¿Cómo se dice "buenos días" en inglés?</label>
+        <input type="text" id="saludo2" name="saludo2" required>
+        <p id="feedback-saludo2"></p>
+        <br>
+
+        <label for="saludo3">5. ¿Cómo se dice "buenas noches" en inglés?</label>
+        <input type="text" id="saludo3" name="saludo3" required>
+        <p id="feedback-saludo3"></p>
+        <br>
+
+        <label for="despedida2">6. ¿Cómo se dice "hasta luego" en inglés?</label>
+        <input type="text" id="despedida2" name="despedida2" required>
+        <p id="feedback-despedida2"></p>
+        <br>
+
+        <input type="button" value="Verificar" onclick="verificarRespuestas()">
+    </form>
+
+    <script>
+        function verificarRespuestas() {
+            var respuestasCorrectas = 0;
+            var saludo = document.getElementById('saludo').value.toLowerCase();
+            var despedida = document.getElementById('despedida').value.toLowerCase();
+            var despedidaOpciones = document.getElementById('despedida-opciones').value;
+            var saludo2 = document.getElementById('saludo2').value.toLowerCase();
+            var saludo3 = document.getElementById('saludo3').value.toLowerCase();
+            var despedida2 = document.getElementById('despedida2').value.toLowerCase();
+
+            var feedbackSaludo = document.getElementById('feedback-saludo');
+            var feedbackDespedida = document.getElementById('feedback-despedida');
+            var feedbackDespedidaOpciones = document.getElementById('feedback-despedida-opciones');
+            var feedbackSaludo2 = document.getElementById('feedback-saludo2');
+            var feedbackSaludo3 = document.getElementById('feedback-saludo3');
+            var feedbackDespedida2 = document.getElementById('feedback-despedida2');
+
+            if (saludo === 'hello') {
+                respuestasCorrectas++;
+                feedbackSaludo.innerHTML = '¡Correcto!';
+            } else {
+                feedbackSaludo.innerHTML = 'Respuesta incorrecta. La respuesta correcta es "hello".';
+            }
+
+            if (despedida === 'bye') {
+                respuestasCorrectas++;
+                feedbackDespedida.innerHTML = '¡Correcto!';
+            } else {
+                feedbackDespedida.innerHTML = 'Respuesta incorrecta. La respuesta correcta es "goodbye".';
+            }
+
+            if (despedidaOpciones === 'Good Afternoon') {
+                respuestasCorrectas++;
+                feedbackDespedidaOpciones.innerHTML = '¡Correcto!';
+            } else {
+                feedbackDespedidaOpciones.innerHTML = 'Respuesta incorrecta. La respuesta correcta es "bye".';
+            }
+
+            if (saludo2 === 'good morning') {
+                respuestasCorrectas++;
+                feedbackSaludo2.innerHTML = '¡Correcto!';
+            } else {
+                feedbackSaludo2.innerHTML = 'Respuesta incorrecta. La respuesta correcta es "good morning".';
+            }
+
+            if (saludo3 === 'good night') {
+                respuestasCorrectas++;
+                feedbackSaludo3.innerHTML = '¡Correcto!';
+            } else {
+                feedbackSaludo3.innerHTML = 'Respuesta incorrecta. La respuesta correcta es "good night".';
+            }
+
+            if (despedida2 === 'see you later') {
+                respuestasCorrectas++;
+                feedbackDespedida2.innerHTML = '¡Correcto!';
+            } else {
+                feedbackDespedida2.innerHTML = 'Respuesta incorrecta. La respuesta correcta es "see you later".';
+            }
+
+            if (respuestasCorrectas === 6) {
+                alert('¡Todas las respuestas son correctas!');
+            }
+        }
+        
+    </script>
+    <a class="button" href="parte2.html">Siguiente</a>
+    
+</body>
+</html>
